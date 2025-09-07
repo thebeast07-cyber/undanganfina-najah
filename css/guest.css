@@ -1,0 +1,171 @@
+@import url("common.css");
+@import url("animation.css");
+
+/* Reset default scrollbar untuk html */
+html {
+    scrollbar-width: none !important;
+    /* Untuk Firefox */
+    -ms-overflow-style: none !important;
+    /* Untuk IE/Edge */
+}
+
+/* Sembunyikan scrollbar Webkit (Chrome, Safari) untuk html */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Pastikan kontainer komentar dapat digulir dan memiliki tinggi maksimum */
+#comments {
+    max-height: 500px;
+    /* Sesuaikan tinggi maksimum sesuai kebutuhan desain Anda */
+    overflow-y: auto;
+    /* Mengaktifkan gulir vertikal jika konten melebihi max-height */
+    /* Opsional: Untuk tampilan scrollbar yang lebih konsisten di berbagai browser */
+    scrollbar-width: thin;
+    /* Untuk Firefox */
+    scrollbar-color: var(--bs-primary) var(--bs-body-bg);
+    /* Untuk Firefox */
+}
+
+/* Gaya scrollbar Webkit (Chrome, Safari) untuk kontainer #comments */
+#comments::-webkit-scrollbar {
+    width: 8px;
+    /* Lebar scrollbar */
+}
+
+#comments::-webkit-scrollbar-track {
+    background: var(--bs-body-bg);
+    /* Warna latar belakang track */
+    border-radius: 10px;
+    /* Sudut membulat pada track */
+}
+
+#comments::-webkit-scrollbar-thumb {
+    background-color: var(--bs-primary);
+    /* Warna thumb */
+    border-radius: 10px;
+    /* Sudut membulat pada thumb */
+    border: 2px solid var(--bs-body-bg);
+    /* Border agar thumb terlihat menonjol */
+}
+
+
+/* Kelas yang sudah ada (dipertahankan) */
+.with-scrollbar {
+    /* Jika ada elemen lain yang menggunakan kelas ini dan butuh scrollbar */
+    scrollbar-width: auto !important;
+    -ms-overflow-style: auto !important;
+}
+
+.font-esthetic {
+    font-family: 'Sacramento', cursive !important;
+}
+
+.font-arabic {
+    font-family: 'Noto Naskh Arabic', serif !important;
+}
+
+.img-center-crop {
+    width: 13rem;
+    height: 13rem;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+html[data-bs-theme="dark"] .btn-transparent {
+    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+    backdrop-filter: blur(0.5rem);
+}
+
+html[data-bs-theme="light"] .btn-transparent {
+    background-color: rgba(var(--bs-light-rgb), 0.5) !important;
+    backdrop-filter: blur(0.5rem);
+}
+
+.loading-page {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1056;
+}
+
+html[data-bs-theme="light"] .color-theme-svg {
+    color: rgb(255, 255, 255);
+    background-color: var(--bs-light);
+}
+
+html[data-bs-theme="dark"] .color-theme-svg {
+    color: rgb(0, 0, 0);
+    background-color: var(--bs-dark);
+}
+
+html[data-bs-theme="light"] .bg-light-dark {
+    background-color: rgb(var(--bs-light-rgb));
+}
+
+html[data-bs-theme="dark"] .bg-light-dark {
+    background-color: rgb(var(--bs-dark-rgb));
+}
+
+html[data-bs-theme="light"] .bg-white-black {
+    background-color: rgb(var(--bs-white-rgb));
+}
+
+html[data-bs-theme="dark"] .bg-white-black {
+    background-color: rgb(var(--bs-black-rgb));
+}
+
+.bg-cover-home {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+}
+
+.width-loading {
+    width: 25%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    .width-loading {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .width-loading {
+        width: 75%;
+    }
+}
+
+svg {
+    display: block;
+    line-height: 0;
+    shape-rendering: geometricPrecision;
+    backface-visibility: hidden;
+}
+
+.svg-wrapper {
+    overflow: hidden !important;
+    transform: translateZ(0) !important;
+}
+
+.no-gap-bottom {
+    margin-bottom: -0.75rem !important;
+}
+#guest-name {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease-out;
+}
+
+#guest-name.show {
+    opacity: 1;
+    transform: translateY(0);
+}
